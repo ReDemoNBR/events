@@ -19,8 +19,8 @@ function DeviceOrientation(e){
   document.getElementById("cllGamma").innerHTML = e.gamma;
 }
 
-document.addEventListener("userproximity", UserProximity, false);
-document.addEventListener("deviceorientation", DeviceOrientation, false);
+window.addEventListener("userproximity", UserProximity, false);
+window.addEventListener("deviceorientation", DeviceOrientation, false);
 navigator.getBattery().then(function(b){
   function UpdateAllBatteryInfo(){
     UpdateCharging();

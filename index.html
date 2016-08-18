@@ -1,0 +1,54 @@
+<div id="divProximity"></div>
+<table id="tblBattery">
+  <tr><td>Charging?</td><td>Battery Level</td><td>Estimated Time to Charge</td><td>Estimated Time to Discharge</td></tr>
+  <tr><td id="cllCharging"></td><td id="cllLevel"></td><td id="cllChargingTime"></td><td id="cllDischargingTime"></td></tr>
+</table>
+<table id="tblOrientation">
+  <tr><td>Absolute?</td><td>Alpha</td><td>Beta</td><td>Gamma</td></tr>
+  <tr><td id="cllAbs"></td><td id="cllAlpha"></td><td id="cllBeta"></td><td id="cllGamma"></td></tr>
+</table>
+<script>
+function UserProximity(e){
+  document.getElementById("divProximity").innerHTML = e.near;
+}
+
+function DeviceOrientation(e){
+  document.getElementById("cllAbs").innerHTML = e.absolute;
+  document.getElementById("cllAlpha").innerHTML = e.alpha;
+  document.getElementById("cllBeta").innerHTML = e.beta;
+  document.getElementById("cllGamma").innerHTML = e.gamma;
+}
+
+document.addEventListener("userproximity", UserProximity, false);
+document.addEventListener("deviceorientation", DeviceOrientation, false);
+navigator.getBattery().then(function(b){
+  function UpdateAllBatteryInfo(){
+    UpdateCharging();
+    UpdateLevel();
+    UpdateChargingTime();
+    UpdateDischargingInfo();
+  }
+  UpdateAllBatteryInfo();
+  
+  function UpdateCharging(){
+    document.getElementById("cllCharging").innerHTML = b.charging?"yes":"no";
+  }
+  
+  function UpdateLevel(){
+    document.getElementById("cllLevel").innerHTML = (b.level*100)+"%";
+  }
+  
+  function UpdateChargingTime(){
+    document.getElementById("cllChargingTime").innerHTML = b.chargingTime+" s";
+  }
+  
+  function UpdateDischargingTime(){
+    document.getElementById("cllDischargingTime").innerHTML = b.dischargingTime+" s";
+  }
+  
+  b.addEventListener("chargingchange", UpdateCharging, false);
+  b.addEventListener("levelchange", UpdateLevel, false);
+  b.addEventListener("chargingtimechanged", UpdateChargingTime, false);
+  b.addEventListener("dischargingtimechanged", UpdateDischargingTime, false);
+});
+</script>

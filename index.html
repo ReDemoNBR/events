@@ -48,7 +48,7 @@ navigator.getBattery().then(function(b){
   
   b.addEventListener("chargingchange", UpdateCharging, false);
   b.addEventListener("levelchange", UpdateLevel, false);
-  b.addEventListener("chargingtimechanged", UpdateChargingTime, false);
-  b.addEventListener("dischargingtimechanged", UpdateDischargingTime, false);
+  b.addEventListener("chargingtimechange", UpdateChargingTime, false);
+  b.addEventListener("dischargingtimechange", UpdateDischargingTime, false);
 });
 </script>

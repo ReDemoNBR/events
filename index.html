@@ -9,18 +9,25 @@
 </table>
 <script>
 function UserProximity(e){
+  console.log(e.near);
   document.getElementById("divProximity").innerHTML = e.near;
 }
 
 function DeviceOrientation(e){
+  console.log("absolute = "+e.absolute+"\nalpha = "+e.alpha+"\nbeta = "+e.beta+"\ngamma = "+e.gamma);
   document.getElementById("cllAbs").innerHTML = e.absolute;
   document.getElementById("cllAlpha").innerHTML = e.alpha;
   document.getElementById("cllBeta").innerHTML = e.beta;
   document.getElementById("cllGamma").innerHTML = e.gamma;
 }
 
-window.addEventListener("userproximity", UserProximity, false);
-window.addEventListener("deviceorientation", DeviceOrientation, false);
+function DeviceOrientationAbsolute(e){
+  console.log("absolute = "+e.absolute+"\nalpha = "+e.alpha+"\nbeta = "+e.beta+"\ngamma = "+e.gamma);
+}
+
+window.onuserproximity = UserProximity;
+window.ondeviceorientation = DeviceOrientation;
+window.ondeviceorientationabsolute = DeviceOrientationAbsolute;
 navigator.getBattery().then(function(b){
   function UpdateAllBatteryInfo(){
     UpdateCharging();

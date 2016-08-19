@@ -28,7 +28,8 @@ function UserProximity(e){
 function DeviceOrientation(e){
   console.log(e);
   console.log("window.orientation = "+window.orientation);
-  console.log("screen.orientation = "+screen.orientation);
+  console.log("screen.orientation:");
+  console.log(screen.orientation);
   document.getElementById("cllAbs").innerHTML = e.absolute;
   document.getElementById("cllAlpha").innerHTML = e.alpha;
   document.getElementById("cllBeta").innerHTML = e.beta;

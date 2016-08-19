@@ -26,9 +26,6 @@ function UserProximity(e){
 }
 
 function DeviceOrientation(e){
-  console.log(e);
-  console.log("window.orientation = "+window.orientation);
-  console.log("screen.orientation:");
   console.log(screen.orientation);
   document.getElementById("cllAbs").innerHTML = e.absolute;
   document.getElementById("cllAlpha").innerHTML = e.alpha;
@@ -46,7 +43,7 @@ function DeviceMotion(e){
 
 //window.onuserproximity = UserProximity;
 window.addEventListener("orientationchange", DeviceOrientation, false);
-window.addEventListener("deviceorientatinchange", DeviceOrientation, false);
+window.addEventListener("deviceorientationchange", DeviceOrientation, false);
 window.addEventListener("devicemotion", DeviceMotion, false);
 //window.ondeviceorientationabsolute = DeviceOrientationAbsolute;
 navigator.getBattery().then(function(b){

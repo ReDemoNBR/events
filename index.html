@@ -18,6 +18,8 @@ window.onload = function(){
     Array.push("no user proximity");
   if(!window.DeviceProximityEvent)
     Array.push("no device proximity");
+  if(!window.DeviceMotionEvent)
+    Array.push("no device motion");
   alert(Array.join("\n"));
 }
 function UserProximity(e){

@@ -41,7 +41,7 @@ function DeviceOrientationAbsolute(e){
 }
 
 //window.onuserproximity = UserProximity;
-window.addEventListener("orientationchange", DeviceOrientation, false);
+window.addEventListener("deviceorientation", DeviceOrientation, false);
 //window.ondeviceorientationabsolute = DeviceOrientationAbsolute;
 navigator.getBattery().then(function(b){
   function UpdateAllBatteryInfo(){

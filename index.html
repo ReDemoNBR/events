@@ -8,6 +8,18 @@
   <tr><td id="cllAbs"></td><td id="cllAlpha"></td><td id="cllBeta"></td><td id="cllGamma"></td></tr>
 </table>
 <script>
+window.onload = function(){
+  var Array = [];
+  if(!window.DeviceOrientationEvent)
+    Array.push("no orientation");
+  if(!window.DeviceOrientationAbsoluteEvent)
+    Array.push("no absolute orientation");
+  if(!window.UserProximityEvent)
+    Array.push("no user proximity");
+  if(!window.DeviceProximityEvent)
+    Array.push("no device proximity");
+  alert(Array.join("\n"));
+}
 function UserProximity(e){
   console.log(e.near);
   document.getElementById("divProximity").innerHTML = e.near;
